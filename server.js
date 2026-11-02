@@ -18,6 +18,7 @@ wss.on("connection",(wss) => {
 
     wss.on("message",(message) => {
         console.log("message received: ", message.toString())
+        wss.send("good test complete from server....")
     })
 
 })
