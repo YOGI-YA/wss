@@ -5,7 +5,11 @@ import path from "node:path"
 
 const PORT = process.env.PORT || 9000;
 
-const server = http.createServer((req,res) => {})
+const server = http.createServer(async function(req, res) {
+    const indexFile = await fs.readFile(path.resolve("./index.html"),"utf-8")
+    res.setHeader("Content-Type","text/html")
+    res.end(indexFile)
+})
 
 const wss = new WebSocketServer({server})
 
